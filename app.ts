@@ -7,6 +7,7 @@ import errorHandler from './src/middlewares/error.handler.middleware'
 import logger from './src/logger'
 import { httpLogger } from './src/middlewares/logger.middlewares'
 import { validatePath } from './src/middlewares/validators'
+import { addAuthUserMiddleware } from './src/middlewares/apps/auth/auth.middlewares'
 
 const port = process.env.NODE_PORT || 3000
 
@@ -19,8 +20,11 @@ app.use(express.json())
 // logging each request
 app.use(httpLogger)
 
-// routes
+// auth middlewares
 
+app.use(addAuthUserMiddleware)
+
+// routes
 app.use('/api', apiRoutes)
 
 

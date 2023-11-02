@@ -5,7 +5,7 @@ export interface IUser {
     firstname: string,
     lastname: string,
     email: string,
-    password: string,
+    password?: string,
     active?: boolean,
     verifiedEmail?: boolean,
     id?: string
