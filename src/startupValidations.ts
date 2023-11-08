@@ -1,4 +1,4 @@
-import authConfig from './src/config/apps/auth/config';
+import authConfig from './config/apps/auth/config';
 
 const checkAuthConfig = () => {
     let k: keyof typeof authConfig;

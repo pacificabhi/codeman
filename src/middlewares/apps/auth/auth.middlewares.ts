@@ -4,7 +4,7 @@ import { NextFunction, Request, Response } from 'express';
 
 declare module 'express-serve-static-core' {
     interface Request {
-        user: IUser
+        user: IUser;
     }
 }
 
@@ -23,9 +23,7 @@ const addAuthUserMiddleware = async (
             if (decoded?.user) {
                 req.user = decoded.user;
             }
-        } catch (err: any) {
-
-        }
+        } catch (err: any) {}
     }
     next();
 };
