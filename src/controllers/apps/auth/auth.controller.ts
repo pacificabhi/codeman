@@ -11,7 +11,7 @@ import {
     deleteRefreshToken,
 } from '../../../services/apps/auth/auth.service';
 
-import { responseError, responseOk } from '../../../utils/response.wrappers';
+import { responseOk } from '../../../utils/response.wrappers';
 import { IUser } from '../../../models/apps/auth/user.model';
 import {
     errorCodes,
@@ -73,7 +73,7 @@ const loginUserHandler = expressAsyncHandler(
     async (req: Request, res: Response) => {
         const { username, password } = req.body;
 
-        const user = await getUser(username);
+        const user: IUser | null = await getUser(username);
         if (!user) {
             throw new ResponseError(
                 errorNames.UNAUTHORIZED,

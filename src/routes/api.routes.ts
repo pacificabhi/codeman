@@ -1,10 +1,10 @@
-import express from 'express'
-import userRoutes from './apps/auth/auth.routes'
-import { apiRateLimit } from '../middlewares/apps/auth/rate.limiter.middlewares';
+import express from 'express';
+import authRoutes from './apps/auth/auth.routes';
+import problemsRoutes from './apps/problems/problems.routes';
 
 const router = express.Router();
 
-router.use('/user',apiRateLimit, userRoutes)
+router.use('/auth', authRoutes);
+router.use('/problems', problemsRoutes);
 
-
-export default router
+export default router;

@@ -14,6 +14,7 @@ import {
     userRegisterSchema,
 } from '../../../utils/validationSchemas/user.validation.schema';
 import { loginRateLimit } from '../../../middlewares/apps/auth/rate.limiter.middlewares';
+
 const router = express.Router();
 
 router

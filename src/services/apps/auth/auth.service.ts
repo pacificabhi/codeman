@@ -27,7 +27,7 @@ const createUserToken = async (token: string, userId: string) => {
 };
 
 const getUser = async (username: string) => {
-    const user = await User.findOne({
+    const user: IUser| null = await User.findOne({
         $or: [{ email: username }, { username: username }],
     });
     return user;
